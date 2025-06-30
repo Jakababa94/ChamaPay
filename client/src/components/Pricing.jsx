@@ -138,7 +138,7 @@ const Pricing = () => {
               Money-Back Guarantee
             </h3>
             <p className="text-gray-600 mb-6">
-              Not satisfied with ChamaBot? Get a full refund within 30 days, no questions asked. We're confident you'll love the results.
+              Not satisfied with ChamaPay? Get a full refund within 7 days, no questions asked. We're confident you'll love the results.
             </p>
             <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
               <div className="flex items-center">

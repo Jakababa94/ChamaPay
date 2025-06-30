@@ -7,7 +7,7 @@ const testimonials = [
     role: 'Treasurer, Uongozi Chama',
     location: 'Nairobi',
     image: 'https://images.pexels.com/photos/3671083/pexels-photo-3671083.jpeg?auto=compress&cs=tinysrgb&w=400',
-    content: 'ChamaBot transformed our collection process. We went from 60% to 95% collection rate in just 2 months. The WhatsApp reminders are a game-changer!',
+    content: 'ChamaPay transformed our collection process. We went from 60% to 90% collection rate in just 2 months. The WhatsApp reminders are a game-changer!',
     rating: 5
   },
   {
@@ -15,7 +15,7 @@ const testimonials = [
     role: 'Chairman, Unity Chama',
     location: 'Mombasa',
     image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400',
-    content: 'Managing 50 members was a nightmare before ChamaBot. Now everything is automated and our members love getting balance updates on WhatsApp.',
+    content: 'Managing 50 members was a nightmare before ChamaPay. Now everything is automated and our members love getting balance updates on WhatsApp.',
     rating: 5
   },
   {
@@ -37,7 +37,7 @@ const Testimonials = () => {
             Trusted by Chamas Across Kenya
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See what Chama leaders are saying about their experience with ChamaBot
+            See what Chama leaders are saying about their experience with ChamaPay
           </p>
         </div>
 
