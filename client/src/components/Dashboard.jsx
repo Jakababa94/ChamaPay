@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Users, CreditCard, TrendingUp, MessageCircle, Calendar, DollarSign, AlertCircle, 
   CheckCircle2, Clock, Send, FileText,Settings } from 'lucide-react';
 
@@ -13,6 +14,7 @@ function decodeJWT(token) {
 
 const Dashboard = () => {
   const [selectedTab, setSelectedTab] = useState('overview');
+  const navigate = useNavigate();
 
   // Get user role from JWT
   let userRole = '';
@@ -25,6 +27,29 @@ const Dashboard = () => {
   } catch (e) {
     userRole = '';
   }
+
+  if (userRole !== 'admin') {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+        <div className="bg-white p-8 rounded shadow-md text-center">
+          <h2 className="text-2xl font-bold text-red-600 mb-4">Access Denied</h2>
+          <p className="text-gray-700 mb-6">You do not have permission to view this page.</p>
+          <button
+            onClick={() => navigate('/')}
+            className="px-6 py-2 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition"
+          >
+            Go to Homepage
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  useEffect(() => {
+    if (userRole !== 'admin') {
+      navigate('/');
+    }
+  }, [userRole, navigate]);
 
   const stats = [
     {

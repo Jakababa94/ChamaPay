@@ -2,12 +2,31 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Bot, Menu, X, CreditCard, BarChart3, Users } from 'lucide-react';
 
+// Lightweight JWT decoder
+function decodeJWT(token) {
+  try {
+    return JSON.parse(atob(token.split('.')[1]));
+  } catch (e) {
+    return {};
+  }
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const isDashboard = location.pathname.includes('/dashboard');
   const isLoggedIn = Boolean(localStorage.getItem('token'));
+  let isAdmin = false;
+  try {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = decodeJWT(token);
+      isAdmin = decoded.role === 'admin';
+    }
+  } catch (e) {
+    isAdmin = false;
+  }
   const handleLogout = () => {
     localStorage.removeItem('token');
     window.location.href = '/';
@@ -58,6 +77,9 @@ const Navbar = () => {
             >
               {isDashboard ? "Home" : "Dashboard"}
             </Link>
+            {isAdmin && (
+              <Link to="/admin-approvals" className="ml-2 px-4 py-2 rounded-lg border border-purple-500 text-purple-600 font-semibold hover:bg-purple-50 transition">Admin Approvals</Link>
+            )}
             {!isDashboard && !isLoggedIn && (
               <>
                 <Link to="/register" className="ml-2 px-4 py-2 rounded-lg border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition">Register</Link>
@@ -112,6 +134,9 @@ const Navbar = () => {
               >
                 {isDashboard ? "Home" : "Dashboard"}
               </Link>
+              {isAdmin && (
+                <Link to="/admin-approvals" className="mt-2 px-4 py-2 rounded-lg border border-purple-500 text-purple-600 font-semibold hover:bg-purple-50 transition text-center">Admin Approvals</Link>
+              )}
               {!isDashboard && !isLoggedIn && (
                 <>
                   <Link to="/register" className="mt-2 px-4 py-2 rounded-lg border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition text-center">Register</Link>

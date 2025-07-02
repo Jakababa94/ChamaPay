@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', password: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', password: '', role: 'member', inviteCode: '' });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ const Register = () => {
     try {
       const res = await axios.post('/api/auth/register', form);
       setSuccess(res.data.message || 'Registration successful!');
-      setTimeout(() => navigate('/features'), 1500);
+      setTimeout(() => navigate('/login'), 1500);
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed');
     } finally {
@@ -37,6 +37,13 @@ const Register = () => {
         <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required className="w-full px-4 py-2 border rounded" />
         <input name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} required className="w-full px-4 py-2 border rounded" />
         <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required className="w-full px-4 py-2 border rounded" />
+        <select name="role" value={form.role} onChange={handleChange} className="w-full px-4 py-2 border rounded">
+          <option value="member">Member</option>
+          <option value="admin">Admin</option>
+        </select>
+        {form.role === 'admin' && (
+          <input name="inviteCode" placeholder="Admin Invite Code" value={form.inviteCode} onChange={handleChange} required className="w-full px-4 py-2 border rounded" />
+        )}
         <button type="submit" disabled={loading} className="w-full bg-green-600 text-white py-2 rounded font-semibold hover:bg-green-700 transition">
           {loading ? 'Registering...' : 'Register'}
         </button>

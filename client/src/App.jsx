@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
 import Register from './components/Register';
 import Login from './components/Login';
+import AdminApprovals from './components/AdminApprovals';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/admin-approvals" element={<AdminApprovals />} />
         </Routes>
       </div>
     </Router>
