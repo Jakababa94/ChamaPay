@@ -1,5 +1,9 @@
 # ChamaPay
 
+## Pitch Deck
+
+[View our Pitch Deck](https://gamma.app/docs/Chama-Payment-Reminder-Bot-Empowering-Group-Savings-f4b2j5f3udtqx46)
+
 ChamaPay is a modern web application for managing Chama (group savings) activities, including member management, contributions, loans, expenses, notifications, and admin approvals. It features a secure authentication system, role-based access, and a beautiful, responsive UI.
 
 ## Features
