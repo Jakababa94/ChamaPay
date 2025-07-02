@@ -30,7 +30,7 @@ ChamaPay is a modern web application for managing Chama (group savings) activiti
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Jakababa94/ChamaPay.git
+git clone <repo-url>
 cd ChamaPay
 ```
 
@@ -90,9 +90,9 @@ ChamaPay/
 
 ## Scripts
 - **Backend:**
-  - `pnpm run dev` — Start backend with nodemon
+  - `pnpm dev` — Start backend with nodemon
 - **Frontend:**
-  - `pnpm run dev` — Start frontend dev server
+  - `pnpm dev` — Start frontend dev server
   - `pnpm build` — Build frontend for production
 
 ## Security & Roles
@@ -109,4 +109,4 @@ MIT
 
 ---
 
-**Karibu saving with ChamaPay!**
+**Happy saving with ChamaPay!** 
