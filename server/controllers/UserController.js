@@ -53,4 +53,36 @@ exports.delete = async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+};
+
+// Approve a pending admin
+exports.approveAdmin = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    if (user.role !== 'admin' || user.status !== 'pending') {
+      return res.status(400).json({ error: 'User is not a pending admin' });
+    }
+    user.status = 'approved';
+    await user.save();
+    res.json({ message: 'Admin approved successfully' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// Reject a pending admin
+exports.rejectAdmin = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    if (user.role !== 'admin' || user.status !== 'pending') {
+      return res.status(400).json({ error: 'User is not a pending admin' });
+    }
+    user.status = 'rejected';
+    await user.save();
+    res.json({ message: 'Admin rejected successfully' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 }; 
