@@ -11,19 +11,19 @@ const Footer = () => {
               <div className="bg-gradient-to-r from-green-500 to-blue-600 p-2 rounded-lg">
                 <Bot className="h-6 w-6 text-white" />
               </div>
-              <span className="text-xl font-bold">ChamaBot</span>
+              <span className="text-xl font-bold">ChamaPay</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Revolutionizing Chama management across Kenya with intelligent WhatsApp automation and payment tracking.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://facebook.com/chamapay" className="text-gray-400 hover:text-white transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://twitter.com/chamapay" className="text-gray-400 hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://linkedin.com/chamapay" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -54,7 +54,7 @@ const Footer = () => {
             <div className="space-y-4 text-gray-400">
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4" />
-                <span>hello@chamabot.co.ke</span>
+                <span>hello@chamapay.co.ke</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4" />
@@ -69,7 +69,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-center">
             <p className="text-gray-500 text-sm">
               © 2025 ChamaPay. All rights reserved.
             </p>
