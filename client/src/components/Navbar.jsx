@@ -7,6 +7,11 @@ const Navbar = () => {
   const location = useLocation();
 
   const isDashboard = location.pathname.includes('/dashboard');
+  const isLoggedIn = Boolean(localStorage.getItem('token'));
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/';
+  };
 
   return (
     <nav className="bg-white shadow-lg border-b border-gray-100">
@@ -53,11 +58,14 @@ const Navbar = () => {
             >
               {isDashboard ? "Home" : "Dashboard"}
             </Link>
-            {!isDashboard && (
+            {!isDashboard && !isLoggedIn && (
               <>
                 <Link to="/register" className="ml-2 px-4 py-2 rounded-lg border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition">Register</Link>
                 <Link to="/login" className="ml-2 px-4 py-2 rounded-lg border border-blue-500 text-blue-600 font-semibold hover:bg-blue-50 transition">Login</Link>
               </>
+            )}
+            {isLoggedIn && (
+              <button onClick={handleLogout} className="ml-2 px-4 py-2 rounded-lg border border-red-500 text-red-600 font-semibold hover:bg-red-50 transition">Logout</button>
             )}
           </div>
 
@@ -104,11 +112,14 @@ const Navbar = () => {
               >
                 {isDashboard ? "Home" : "Dashboard"}
               </Link>
-              {!isDashboard && (
+              {!isDashboard && !isLoggedIn && (
                 <>
                   <Link to="/register" className="mt-2 px-4 py-2 rounded-lg border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition text-center">Register</Link>
                   <Link to="/login" className="mt-2 px-4 py-2 rounded-lg border border-blue-500 text-blue-600 font-semibold hover:bg-blue-50 transition text-center">Login</Link>
                 </>
+              )}
+              {isLoggedIn && (
+                <button onClick={handleLogout} className="mt-2 px-4 py-2 rounded-lg border border-red-500 text-red-600 font-semibold hover:bg-red-50 transition text-center">Logout</button>
               )}
             </div>
           </div>
