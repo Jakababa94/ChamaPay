@@ -30,7 +30,7 @@ ChamaPay is a modern web application for managing Chama (group savings) activiti
 
 ### 1. Clone the Repository
 ```bash
-git clone <repo-url>
+git clone https://github.com/Jakababa94/ChamaPay.git
 cd ChamaPay
 ```
 
@@ -109,4 +109,4 @@ MIT
 
 ---
 
-**Happy saving with ChamaPay!** 
+**Karibu saving with ChamaPay!** 

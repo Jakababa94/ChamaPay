@@ -43,7 +43,7 @@ pnpm install # or npm install
 #### Create a `.env` file in `server/` with:
 ```env
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/chamapay
+MONGO_URI=mongodb://localhost:27017/chamapaydb
 JWT_SECRET=your_jwt_secret
 ADMIN_INVITE_CODE=your_admin_invite_code
 NOTIFY_EMAIL_USER=your_email@gmail.com
@@ -56,7 +56,7 @@ SUPER_ADMIN_EMAIL=superadmin@example.com
 
 #### Start the backend server:
 ```bash
-pnpm dev # or npm run dev
+pnpm run dev # or npm run dev
 ```
 
 ---
