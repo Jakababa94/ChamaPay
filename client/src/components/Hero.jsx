@@ -28,7 +28,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                to="/dashboard"
+                to="/register"
                 className="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:shadow-xl transition-all transform hover:scale-105"
               >
                 Start Free Trial
@@ -63,7 +63,7 @@ const Hero = () => {
                 <div className="w-3 h-3 bg-white rounded-full opacity-80"></div>
                 <div className="w-3 h-3 bg-white rounded-full opacity-80"></div>
                 <div className="w-3 h-3 bg-white rounded-full opacity-80"></div>
-                <span className="text-white font-medium ml-auto">ChamaBot</span>
+                <span className="text-white font-medium ml-auto">ChamaPay</span>
               </div>
               <div className="p-6 space-y-4">
                 <div className="bg-gray-100 rounded-lg p-4">

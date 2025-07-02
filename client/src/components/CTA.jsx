@@ -36,14 +36,14 @@ const CTA = () => {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
-              to="/dashboard"
+              to="/register"
               className="inline-flex items-center bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:shadow-xl transition-all transform hover:scale-105 group"
             >
               Start Your Free Trial
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="tel:+254700000000"
+              href="tel:+254721805204"
               className="inline-flex items-center border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all"
             >
               Call Us: +254 721 805 204
