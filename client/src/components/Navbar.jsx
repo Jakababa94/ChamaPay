@@ -53,6 +53,12 @@ const Navbar = () => {
             >
               {isDashboard ? "Home" : "Dashboard"}
             </Link>
+            {!isDashboard && (
+              <>
+                <Link to="/register" className="ml-2 px-4 py-2 rounded-lg border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition">Register</Link>
+                <Link to="/login" className="ml-2 px-4 py-2 rounded-lg border border-blue-500 text-blue-600 font-semibold hover:bg-blue-50 transition">Login</Link>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -98,6 +104,12 @@ const Navbar = () => {
               >
                 {isDashboard ? "Home" : "Dashboard"}
               </Link>
+              {!isDashboard && (
+                <>
+                  <Link to="/register" className="mt-2 px-4 py-2 rounded-lg border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition text-center">Register</Link>
+                  <Link to="/login" className="mt-2 px-4 py-2 rounded-lg border border-blue-500 text-blue-600 font-semibold hover:bg-blue-50 transition text-center">Login</Link>
+                </>
+              )}
             </div>
           </div>
         )}

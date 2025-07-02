@@ -2,8 +2,29 @@ import React, { useState } from 'react';
 import { Users, CreditCard, TrendingUp, MessageCircle, Calendar, DollarSign, AlertCircle, 
   CheckCircle2, Clock, Send, FileText,Settings } from 'lucide-react';
 
+// Lightweight JWT decoder
+function decodeJWT(token) {
+  try {
+    return JSON.parse(atob(token.split('.')[1]));
+  } catch (e) {
+    return {};
+  }
+}
+
 const Dashboard = () => {
   const [selectedTab, setSelectedTab] = useState('overview');
+
+  // Get user role from JWT
+  let userRole = '';
+  try {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = decodeJWT(token);
+      userRole = decoded.role;
+    }
+  } catch (e) {
+    userRole = '';
+  }
 
   const stats = [
     {
@@ -183,23 +204,25 @@ const Dashboard = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-gradient-to-r from-green-500 to-blue-600 rounded-xl p-8 text-white">
-              <h3 className="text-xl font-bold mb-4">Quick Actions</h3>
-              <div className="grid md:grid-cols-3 gap-4">
-                <button className="bg-white/20 backdrop-blur-sm p-4 rounded-lg hover:bg-white/30 transition-colors">
-                  <Users className="h-6 w-6 mb-2" />
-                  <div className="text-sm font-medium">Add Member</div>
-                </button>
-                <button className="bg-white/20 backdrop-blur-sm p-4 rounded-lg hover:bg-white/30 transition-colors">
-                  <MessageCircle className="h-6 w-6 mb-2" />
-                  <div className="text-sm font-medium">Send Message</div>
-                </button>
-                <button className="bg-white/20 backdrop-blur-sm p-4 rounded-lg hover:bg-white/30 transition-colors">
-                  <FileText className="h-6 w-6 mb-2" />
-                  <div className="text-sm font-medium">Generate Report</div>
-                </button>
+            {userRole === 'admin' && (
+              <div className="bg-gradient-to-r from-green-500 to-blue-600 rounded-xl p-8 text-white">
+                <h3 className="text-xl font-bold mb-4">Quick Actions</h3>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <button className="bg-white/20 backdrop-blur-sm p-4 rounded-lg hover:bg-white/30 transition-colors">
+                    <Users className="h-6 w-6 mb-2" />
+                    <div className="text-sm font-medium">Add Member</div>
+                  </button>
+                  <button className="bg-white/20 backdrop-blur-sm p-4 rounded-lg hover:bg-white/30 transition-colors">
+                    <MessageCircle className="h-6 w-6 mb-2" />
+                    <div className="text-sm font-medium">Send Message</div>
+                  </button>
+                  <button className="bg-white/20 backdrop-blur-sm p-4 rounded-lg hover:bg-white/30 transition-colors">
+                    <FileText className="h-6 w-6 mb-2" />
+                    <div className="text-sm font-medium">Generate Report</div>
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         )}
 
