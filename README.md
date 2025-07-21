@@ -1,5 +1,10 @@
 # ChamaPay
 
+## Live Demo
+
+- **Frontend:** [https://chama-pay-ruby.vercel.app/](https://chama-pay-ruby.vercel.app/)
+- **Backend API:** [https://chamapay.onrender.com](https://chamapay.onrender.com)
+
 ## Pitch Deck
 
 [View our Pitch Deck](https://gamma.app/docs/Chama-Payment-Reminder-Bot-Empowering-Group-Savings-f4b2j5f3udtqx46)
