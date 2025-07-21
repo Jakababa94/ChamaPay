@@ -9,6 +9,7 @@ import AdminApprovals from './components/AdminApprovals';
 
 function App() {
   return (
+   
     <Router>
       <div className="min-h-screen bg-gray-50">
         <Navbar />
@@ -21,6 +22,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    
   );
 }
 

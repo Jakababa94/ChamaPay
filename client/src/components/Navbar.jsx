@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Bot, Menu, X, CreditCard, BarChart3, Users } from 'lucide-react';
-import { Sun, Moon } from 'lucide-react';
+import { Bot, Menu, X, CreditCard, BarChart3, Users, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeProvider'; // Adjust the path if needed
 
 // Lightweight JWT decoder
 function decodeJWT(token) {
@@ -14,30 +14,8 @@ function decodeJWT(token) {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState('light');
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
-
-  // Theme toggle logic
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
 
   const isDashboard = location.pathname.includes('/dashboard');
   const isLoggedIn = Boolean(localStorage.getItem('token'));
@@ -57,7 +35,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-lg border-b border-gray-100">
+    <nav className="bg-white dark:bg-gray-800 shadow-lg border-b border-gray-100 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -115,7 +93,7 @@ const Navbar = () => {
             )}
             <button
               onClick={toggleTheme}
-              className="ml-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition flex items-center"
+              className="ml-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition flex items-center"
               title="Toggle theme"
             >
               {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -179,7 +157,7 @@ const Navbar = () => {
               )}
               <button
                 onClick={toggleTheme}
-                className="mt-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition flex items-center justify-center"
+                className="mt-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition flex items-center justify-center"
                 title="Toggle theme"
               >
                 {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}

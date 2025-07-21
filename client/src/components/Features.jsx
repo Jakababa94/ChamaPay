@@ -42,13 +42,13 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 bg-white">
+    <section id="features" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             Everything Your Chama Needs
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Streamline your Chama operations with powerful automation tools designed specifically for Kenyan savings groups.
           </p>
         </div>
@@ -57,38 +57,38 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl hover:border-transparent transition-all duration-300 transform hover:-translate-y-2"
+              className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:shadow-xl hover:border-transparent transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${feature.gradient} mb-6 group-hover:scale-110 transition-transform`}>
                 <feature.icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 {feature.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-20 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 lg:p-12">
+        <div className="mt-20 bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 lg:p-12">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                 See the Impact
               </h3>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
                 Join hundreds of Chamas across Kenya who have transformed their payment collection process with ChamaBot.
               </p>
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-white rounded-lg p-4 shadow-sm">
-                  <div className="text-2xl font-bold text-green-600">+85%</div>
-                  <div className="text-sm text-gray-600">Collection Rate</div>
+                <div className="bg-white dark:bg-gray-900 rounded-lg p-4 shadow-sm">
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">+85%</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Collection Rate</div>
                 </div>
-                <div className="bg-white rounded-lg p-4 shadow-sm">
-                  <div className="text-2xl font-bold text-blue-600">-70%</div>
-                  <div className="text-sm text-gray-600">Admin Time</div>
+                <div className="bg-white dark:bg-gray-900 rounded-lg p-4 shadow-sm">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">-70%</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Admin Time</div>
                 </div>
               </div>
             </div>

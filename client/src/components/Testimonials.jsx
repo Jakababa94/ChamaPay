@@ -30,13 +30,13 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             Trusted by Chamas Across Kenya
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             See what Chama leaders are saying about their experience with ChamaPay
           </p>
         </div>
@@ -45,7 +45,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="flex items-center mb-6">
                 <img
@@ -54,9 +54,9 @@ const Testimonials = () => {
                   className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
-                  <p className="text-xs text-gray-500">{testimonial.location}</p>
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100">{testimonial.name}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{testimonial.location}</p>
                 </div>
               </div>
 
@@ -67,8 +67,8 @@ const Testimonials = () => {
               </div>
 
               <div className="relative">
-                <Quote className="absolute -top-2 -left-2 h-8 w-8 text-green-200" />
-                <p className="text-gray-700 leading-relaxed pl-6">
+                <Quote className="absolute -top-2 -left-2 h-8 w-8 text-green-200 dark:text-green-900" />
+                <p className="text-gray-700 dark:text-gray-200 leading-relaxed pl-6">
                   {testimonial.content}
                 </p>
               </div>

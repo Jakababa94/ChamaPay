@@ -30,10 +30,10 @@ const Dashboard = () => {
 
   if (userRole !== 'admin') {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-        <div className="bg-white p-8 rounded shadow-md text-center">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900">
+        <div className="bg-white dark:bg-gray-800 p-8 rounded shadow-md text-center">
           <h2 className="text-2xl font-bold text-red-600 mb-4">Access Denied</h2>
-          <p className="text-gray-700 mb-6">You do not have permission to view this page.</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-6">You do not have permission to view this page.</p>
           <button
             onClick={() => navigate('/')}
             className="px-6 py-2 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition"
@@ -101,17 +101,17 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Chama Dashboard</h1>
-          <p className="text-gray-600 mt-2">Welcome back! Here's what's happening with your Chama.</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Chama Dashboard</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-2">Welcome back! Here's what's happening with your Chama.</p>
         </div>
 
         {/* Tab Navigation */}
         <div className="mb-8">
-          <nav className="flex space-x-8 border-b border-gray-200">
+          <nav className="flex space-x-8 border-b border-gray-200 dark:border-gray-700">
             {[
               { id: 'overview', label: 'Overview', icon: TrendingUp },
               { id: 'members', label: 'Members', icon: Users },
@@ -125,8 +125,8 @@ const Dashboard = () => {
                 onClick={() => setSelectedTab(tab.id)}
                 className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
                   selectedTab === tab.id
-                    ? 'border-green-500 text-green-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? 'border-green-500 text-green-600 dark:text-green-400'
+                    : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600'
                 }`}
               >
                 <tab.icon className="h-4 w-4" />
@@ -142,12 +142,12 @@ const Dashboard = () => {
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {stats.map((stat, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-gray-600">{stat.title}</p>
-                      <p className="text-2xl font-bold text-gray-900 mt-2">{stat.value}</p>
-                      <p className="text-sm text-gray-500 mt-1">{stat.change}</p>
+                      <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{stat.title}</p>
+                      <p className="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-2">{stat.value}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">{stat.change}</p>
                     </div>
                     <div className={`${stat.bgColor} p-3 rounded-lg`}>
                       <stat.icon className={`h-6 w-6 ${stat.color}`} />
@@ -160,23 +160,23 @@ const Dashboard = () => {
             {/* Recent Activity */}
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Recent Payments */}
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200">
-                <div className="p-6 border-b border-gray-200">
-                  <h3 className="text-lg font-semibold text-gray-900">Recent Payments</h3>
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+                <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Recent Payments</h3>
                 </div>
                 <div className="p-6">
                   <div className="space-y-4">
                     {recentPayments.map((payment, index) => (
                       <div key={index} className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
-                          <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                          <div className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center">
                             <span className="text-sm font-medium text-gray-600">
                               {payment.name.split(' ').map(n => n[0]).join('')}
                             </span>
                           </div>
                           <div>
-                            <p className="font-medium text-gray-900">{payment.name}</p>
-                            <p className="text-sm text-gray-500">{payment.date}</p>
+                            <p className="font-medium text-gray-900 dark:text-gray-100">{payment.name}</p>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">{payment.date}</p>
                           </div>
                         </div>
                         <div className="text-right">
@@ -201,9 +201,9 @@ const Dashboard = () => {
               </div>
 
               {/* Upcoming Reminders */}
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200">
-                <div className="p-6 border-b border-gray-200">
-                  <h3 className="text-lg font-semibold text-gray-900">Upcoming Reminders</h3>
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+                <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Upcoming Reminders</h3>
                 </div>
                 <div className="p-6">
                   <div className="space-y-4">
@@ -213,9 +213,9 @@ const Dashboard = () => {
                           <Calendar className="h-4 w-4 text-blue-600" />
                         </div>
                         <div className="flex-1">
-                          <p className="font-medium text-gray-900">{reminder.type}</p>
-                          <p className="text-sm text-gray-600 mt-1">{reminder.message}</p>
-                          <p className="text-xs text-gray-500 mt-2">{reminder.time}</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">{reminder.type}</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{reminder.message}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">{reminder.time}</p>
                         </div>
                       </div>
                     ))}
@@ -253,7 +253,7 @@ const Dashboard = () => {
 
         {/* Other tabs content placeholder */}
         {selectedTab !== 'overview' && (
-          <div className="bg-white rounded-xl p-12 text-center">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-12 text-center">
             <div className="max-w-md mx-auto">
               <div className="bg-gray-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Settings className="h-8 w-8 text-gray-600" />

@@ -59,16 +59,16 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-20 bg-gray-50">
+    <section id="pricing" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Choose the perfect plan for your Chama. All plans include a 14-day free trial with no commitment.
           </p>
-          <div className="mt-6 inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
+          <div className="mt-6 inline-flex items-center bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 px-4 py-2 rounded-full text-sm font-medium">
             <Star className="h-4 w-4 mr-2" />
             <span>14-day free trial • No credit card required</span>
           </div>
@@ -78,10 +78,10 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-2xl p-8 ${
+              className={`relative bg-white dark:bg-gray-800 rounded-2xl p-8 ${
                 plan.popular
                   ? 'border-2 border-green-500 shadow-xl scale-105'
-                  : 'border border-gray-200 shadow-lg'
+                  : 'border border-gray-200 dark:border-gray-700 shadow-lg'
               }`}
             >
               {plan.popular && (
@@ -94,16 +94,16 @@ const Pricing = () => {
               )}
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                <p className="text-gray-600 mb-4">{plan.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{plan.name}</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">{plan.description}</p>
                 <div className="flex items-baseline justify-center">
                   {plan.price === 'Custom' ? (
-                    <span className="text-3xl font-bold text-gray-900">Custom</span>
+                    <span className="text-3xl font-bold text-gray-900 dark:text-gray-100">Custom</span>
                   ) : (
                     <>
-                      <span className="text-sm text-gray-600 mr-1">KES</span>
-                      <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                      <span className="text-gray-600 ml-1">/{plan.period}</span>
+                      <span className="text-sm text-gray-600 dark:text-gray-400 mr-1">KES</span>
+                      <span className="text-4xl font-bold text-gray-900 dark:text-gray-100">{plan.price}</span>
+                      <span className="text-gray-600 dark:text-gray-400 ml-1">/{plan.period}</span>
                     </>
                   )}
                 </div>
@@ -113,7 +113,7 @@ const Pricing = () => {
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start">
                     <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -123,7 +123,7 @@ const Pricing = () => {
                 className={`w-full inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all ${
                   plan.popular
                     ? 'bg-gradient-to-r from-green-500 to-blue-600 text-white hover:shadow-lg transform hover:scale-105'
-                    : 'bg-gray-900 text-white hover:bg-gray-800'
+                    : 'bg-gray-900 dark:bg-gray-700 text-white hover:bg-gray-800 dark:hover:bg-gray-600'
                 }`}
               >
                 {plan.cta}
@@ -133,14 +133,14 @@ const Pricing = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
               Money-Back Guarantee
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
               Not satisfied with ChamaPay? Get a full refund within 7 days, no questions asked. We're confident you'll love the results.
             </p>
-            <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
+            <div className="flex items-center justify-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex items-center">
                 <Shield className="h-4 w-4 mr-2 text-green-500" />
                 <span>Secure Payments</span>
