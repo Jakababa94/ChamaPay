@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const [form, setForm] = useState({ identifier: '', password: '' });
   const [error, setError] = useState('');
@@ -17,7 +19,7 @@ const Login = () => {
     setError('');
     setLoading(true);
     try {
-      const res = await axios.post('/api/auth/login', form);
+      const res = await axios.post(`${apiUrl}/api/auth/login`, form);
       localStorage.setItem('token', res.data.token);
       navigate('/dashboard');
     } catch (err) {

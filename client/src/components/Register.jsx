@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const Register = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', password: '', role: 'member', inviteCode: '' });
   const [error, setError] = useState('');
@@ -19,7 +21,7 @@ const Register = () => {
     setSuccess('');
     setLoading(true);
     try {
-      const res = await axios.post('/api/auth/register', form);
+      const res = await axios.post(`${apiUrl}/api/auth/register`, form);
       setSuccess(res.data.message || 'Registration successful!');
       setTimeout(() => navigate('/login'), 1500);
     } catch (err) {
